@@ -12,7 +12,7 @@ $ docker run -d -p 179:179 iscream/gobgp gobgpd
 ```
 
 ## Using a custom GoBGP
-You write GoBGP startup configuration file into \`pwd\`/gobgp.conf.
+You write GoBGP startup configuration file into \`pwd\`/gobgp.conf.  
 And then run this image with current directory mounted in /etc/gobgp
 
 ```
