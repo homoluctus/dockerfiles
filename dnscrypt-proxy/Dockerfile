@@ -14,5 +14,6 @@ RUN chmod 500 /usr/local/bin/dnscrypt-proxy \
     && sed -i 's/^# server_names/server_names/' /etc/dnscrypt-proxy/dnscrypt-proxy.toml \
     && echo 'nameserver 127.0.0.1\noptions edns0 single-request-reopen' > /etc/resolv.conf
 
-EXPOSE 53
+EXPOSE 53/udp
+EXPOSE 53/tcp
 CMD ["/usr/local/bin/dnscrypt-proxy", "-config", "/etc/dnscrypt-proxy/dnscrypt-proxy.toml"]
