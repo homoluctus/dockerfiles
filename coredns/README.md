@@ -1,21 +1,9 @@
 # How to use this image
-## Start a GoBGP server
+## Start a CoreDNS server
+You write CoreDNS startup configuration file into \`pwd\`/conf/Corefile.
+And then run this image with \`pwd\`/conf directory mounted in /etc/coredns
 
 ```
-$ docker run -d iscream/gobgp gobgpd
-```
-
-## Exposing externanl port
-
-```
-$ docker run -d -p 179:179 iscream/gobgp gobgpd
-```
-
-## Using a custom GoBGP configuration file
-You write GoBGP startup configuration file into \`pwd\`/gobgp.conf.  
-And then run this image with current directory mounted in /etc/gobgp
-
-```
-$ docker run -v `pwd`:/etc/gobgp -d iscream/gobgp
+$ docker run -v `pwd`/conf:/etc/coredns -p 53:53 -d iscream/coredns
 ```
 
