@@ -32,5 +32,4 @@ RUN apt update && \
     mkdir /etc/kea /var/kea
 
 EXPOSE 67/udp 547/udp
-CMD ["keactrl", "start", "-c", "/etc/kea/keactrl.conf"]
-
+CMD ["/usr/local/sbin/keactrl", "start", "-c", "/etc/kea/keactrl.conf"]
