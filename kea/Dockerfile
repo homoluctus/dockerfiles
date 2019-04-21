@@ -19,8 +19,7 @@ RUN apt update && \
     make install
 
 FROM debian:stretch-slim
-COPY --from=builder /usr/local/bin/kea* /usr/local/bin/
-COPY --from=builder /usr/local/sbin/kea* /usr/local/sbin/
+COPY --from=builder /usr/local/ /usr/local/
 
 RUN apt update && \
     apt install -y --no-install-recommends \
@@ -31,5 +30,6 @@ RUN apt update && \
     ldconfig && \
     mkdir /etc/kea /var/kea
 
-EXPOSE 67/udp 547/udp
+EXPOSE 67/udp
+EXPOSE 547/udp
 CMD ["/usr/local/sbin/keactrl", "start", "-c", "/etc/kea/keactrl.conf"]
